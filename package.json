@@ -41,16 +41,16 @@
     "tree-shakable",
     "zero-dependencies"
   ],
-  "author": "Your Name <your.email@example.com>",
+  "author": "Najam ul Hassan <realnajmiter@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/strutils.git"
+    "url": "git+https://github.com/najmiter/strutils.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/strutils/issues"
+    "url": "https://github.com/najmiter/strutils/issues"
   },
-  "homepage": "https://github.com/yourusername/strutils#readme",
+  "homepage": "https://github.com/najmiter/strutils#readme",
   "devDependencies": {
     "@rollup/plugin-typescript": "^12.1.0",
     "@types/jest": "^29.5.12",
