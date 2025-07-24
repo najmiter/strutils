@@ -1,8 +1,8 @@
-# Strutils
+# @najmiter/strutils
 
 A modern TypeScript utility library for string manipulation and validation.
 
-[![npm version](https://badge.fury.io/js/strutils.svg)](https://badge.fury.io/js/strutils)
+[![npm version](https://badge.fury.io/js/@najmiter%2Fstrutils.svg)](https://badge.fury.io/js/@najmiter%2Fstrutils)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/)
 
@@ -18,15 +18,15 @@ A modern TypeScript utility library for string manipulation and validation.
 ## Installation
 
 ```bash
-npm install strutils
+npm install @najmiter/strutils
 ```
 
 ```bash
-yarn add strutils
+yarn add @najmiter/strutils
 ```
 
 ```bash
-pnpm add strutils
+pnpm add @najmiter/strutils
 ```
 
 ## Usage
@@ -40,7 +40,7 @@ import {
   toKebabCase,
   toSnakeCase,
   truncate,
-} from 'strutils';
+} from '@najmiter/strutils';
 
 // Capitalize first letter
 capitalize('hello world'); // "Hello world"
@@ -69,7 +69,7 @@ import {
   isValidUrl,
   isAlpha,
   isNumeric,
-} from 'strutils';
+} from '@najmiter/strutils';
 
 // Type checking
 isString('hello'); // true
