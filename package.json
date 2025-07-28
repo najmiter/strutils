@@ -29,7 +29,8 @@
     "clean": "rm -rf dist coverage",
     "size": "npm run build && bundlesize",
     "audit:security": "npm audit --audit-level=moderate",
-    "validate": "npm run lint && npm run type-check && npm run test && npm run build"
+    "validate": "npm run lint && npm run type-check && npm run test && npm run build",
+    "publish": "npm run prerelease && npm version patch && npm publish"
   },
   "keywords": [
     "typescript",
