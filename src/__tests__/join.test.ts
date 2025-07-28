@@ -61,28 +61,29 @@ describe('Join Utils', () => {
 
   describe('jp (Join Path)', () => {
     it('should join path segments with forward slashes', () => {
-      expect(jp('users', 'john', 'documents')).toBe('users/john/documents');
-      expect(jp('api', 'v1', 'users')).toBe('api/v1/users');
+      expect(jp('users', 'john', 'documents')).toBe('/users/john/documents');
+      expect(jp('api', 'v1', 'users')).toBe('/api/v1/users');
+      expect(jp('api', 'v1', 'users')).toBe('/api/v1/users');
     });
 
     it('should handle numbers', () => {
-      expect(jp('api', 'v1', 42, 'items')).toBe('api/v1/42/items');
-      expect(jp('folder', 2023, 'files')).toBe('folder/2023/files');
+      expect(jp('api', 'v1', 42, 'items')).toBe('/api/v1/42/items');
+      expect(jp('folder', 2023, 'files')).toBe('/folder/2023/files');
     });
 
     it('should filter out empty segments', () => {
-      expect(jp('users', '', 'john')).toBe('users/john');
-      expect(jp('', 'api', '', 'v1', '')).toBe('api/v1');
+      expect(jp('users', '', 'john')).toBe('/users/john');
+      expect(jp('', 'api', '', 'v1', '')).toBe('/api/v1');
     });
 
     it('should handle undefined values', () => {
-      expect(jp('users', undefined, 'john')).toBe('users/john');
-      expect(jp(undefined, 'api', undefined)).toBe('api');
+      expect(jp('users', undefined, 'john')).toBe('/users/john');
+      expect(jp(undefined, 'api', undefined)).toBe('/api');
     });
 
     it('should handle whitespace-only segments', () => {
-      expect(jp('users', '   ', 'john')).toBe('users/john');
-      expect(jp('api', '\t', 'v1')).toBe('api/v1');
+      expect(jp('users', '   ', 'john')).toBe('/users/john');
+      expect(jp('api', '\t', 'v1')).toBe('/api/v1');
     });
 
     it('should handle empty inputs', () => {
@@ -92,7 +93,7 @@ describe('Join Utils', () => {
     });
 
     it('should trim the result', () => {
-      expect(jp(' users ', ' john ')).toBe('users/john');
+      expect(jp(' users ', ' john ')).toBe('/users/john');
     });
   });
 });
