@@ -43,8 +43,18 @@ export function js(...strings: Array<string | number | undefined>): string {
  * ```
  */
 export function jp(...strings: Array<string | number | undefined>): string {
-  return strings
+  if (strings.length === 0) {
+    return '';
+  }
+  const path = strings
     .map(s => s?.toString()?.trim())
     .filter(s => s)
     .join('/');
+
+  if (!path) return path;
+
+  if (!path.startsWith('/')) {
+    return js('/', path);
+  }
+  return path;
 }
