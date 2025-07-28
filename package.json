@@ -1,6 +1,6 @@
 {
   "name": "@najmiter/strutils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "A comprehensive TypeScript utility library for string manipulation and validation",
   "main": "dist/index.js",
