@@ -8,4 +8,4 @@ export * from './join';
 export * from './validators';
 
 // Version information
-export const version = '1.0.0';
+export const version = '1.0.3';

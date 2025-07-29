@@ -26,6 +26,6 @@ describe('Index exports', () => {
 
   it('should export version', () => {
     expect(typeof strutils.version).toBe('string');
-    expect(strutils.version).toBe('1.0.0');
+    expect(strutils.version).toBe('1.0.3');
   });
 });

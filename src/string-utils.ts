@@ -1,6 +1,6 @@
 /**
  * Capitalizes the first letter of a string
- * @import `import { capitalize } from 'strutils'`
+ * @import `import { capitalize } from '@najmiter/strutils'`
  * @param str - The string to capitalize
  * @returns The capitalized string
  *
@@ -14,13 +14,14 @@
  * ```
  */
 export function capitalize(str: string): string {
+  if (typeof str !== 'string') return '';
   if (!str) return '';
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }
 
 /**
  * Converts a string to camelCase
- * @import `import { toCamelCase } from 'strutils'`
+ * @import `import { toCamelCase } from '@najmiter/strutils'`
  * @param str - The string to convert
  * @returns The camelCase string
  *
@@ -35,6 +36,7 @@ export function capitalize(str: string): string {
  * ```
  */
 export function toCamelCase(str: string): string {
+  if (typeof str !== 'string') return '';
   // If already camelCase (no spaces/hyphens/underscores), return as is
   if (!/[\s_-]/.test(str)) {
     return str.charAt(0).toLowerCase() + str.slice(1);
@@ -50,7 +52,7 @@ export function toCamelCase(str: string): string {
 
 /**
  * Converts a string to kebab-case
- * @import `import { toKebabCase } from 'strutils'`
+ * @import `import { toKebabCase } from '@najmiter/strutils'`
  * @param str - The string to convert
  * @returns The kebab-case string
  *
@@ -65,6 +67,7 @@ export function toCamelCase(str: string): string {
  * ```
  */
 export function toKebabCase(str: string): string {
+  if (typeof str !== 'string') return '';
   return str
     .replace(/([a-z])([A-Z])/g, '$1-$2')
     .replace(/[\s_]+/g, '-')
@@ -73,7 +76,7 @@ export function toKebabCase(str: string): string {
 
 /**
  * Converts a string to snake_case
- * @import `import { toSnakeCase } from 'strutils'`
+ * @import `import { toSnakeCase } from '@najmiter/strutils'`
  * @param str - The string to convert
  * @returns The snake_case string
  *
@@ -88,6 +91,7 @@ export function toKebabCase(str: string): string {
  * ```
  */
 export function toSnakeCase(str: string): string {
+  if (typeof str !== 'string') return '';
   return str
     .replace(/([a-z])([A-Z])/g, '$1_$2')
     .replace(/[\s-]+/g, '_')
@@ -96,7 +100,7 @@ export function toSnakeCase(str: string): string {
 
 /**
  * Truncates a string to a specified length
- * @import `import { truncate } from 'strutils'`
+ * @import `import { truncate } from '@najmiter/strutils'`
  * @param str - The string to truncate
  * @param length - The maximum length
  * @param suffix - The suffix to append (default: '...')
@@ -118,7 +122,33 @@ export function truncate(
   length: number,
   suffix: string = '...'
 ): string {
+  if (typeof str !== 'string') return '';
   if (str.length <= length) return str;
   if (length <= 0) return suffix;
   return str.slice(0, length - suffix.length) + suffix;
+}
+
+/**
+ * Pascalizes the first letter of each word of a string
+ * @import `import { pascalize } from '@najmiter/strutils'`
+ * @param str - The string to pascalize
+ * @returns The pascalized string
+ *
+ * ```ts
+ * const result = pascalize('hello world');
+ * // result = 'Hello World'
+ *
+ * pascalize('HELLO'); // 'Hello'
+ * pascalize('hELLO WORLD'); // 'Hello World'
+ * pascalize(''); // ''
+ * ```
+ */
+export function pascalize(str: string): string {
+  if (typeof str !== 'string') return '';
+  if (!str) return '';
+  return str
+    .trim()
+    .toLowerCase()
+    .replace(/(?:^|\s)\w/g, match => match.toUpperCase())
+    .replace(/\s+/g, ' ');
 }

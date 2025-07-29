@@ -1,5 +1,6 @@
 import {
   capitalize,
+  pascalize,
   toCamelCase,
   toKebabCase,
   toSnakeCase,
@@ -90,6 +91,26 @@ describe('String Utils', () => {
     it('should handle edge cases', () => {
       expect(truncate('', 5)).toBe('');
       expect(truncate('hello', 0)).toBe('...');
+    });
+  });
+
+  describe('pascalize', () => {
+    it('should pascalize strings longer than the specified length', () => {
+      expect(pascalize('hello world')).toBe('Hello World');
+    });
+
+    it('should not pascalize strings shorter than or equal to the specified length', () => {
+      expect(pascalize('hello')).toBe('Hello');
+      expect(pascalize('hEllo')).toBe('Hello');
+    });
+
+    it('should use custom suffix', () => {
+      expect(pascalize('hello world')).toBe('Hello World');
+    });
+
+    it('should handle edge cases', () => {
+      expect(pascalize('  world')).toBe('World');
+      expect(pascalize('1 two . four')).toBe('1 Two . Four');
     });
   });
 });
